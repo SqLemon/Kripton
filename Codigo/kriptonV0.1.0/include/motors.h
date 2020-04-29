@@ -2,6 +2,7 @@
 #include <PID_v1.h>
 
 enum {MOT_D, MOT_I};
+enum {RIGH, LEFT};
 #define GAP_SIZE 100
 #define RUN_TIME 10 //ms
 
@@ -32,5 +33,7 @@ class Motors{
     void run(void);
     void setVel(int, int);
     void setMotVel(char, int);
+    void turn90(char);
+    void turn180(char);
 
 };

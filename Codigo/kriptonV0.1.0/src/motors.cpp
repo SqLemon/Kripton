@@ -16,10 +16,10 @@ Motors::Motors(char Da, char Db, char Ia, char Ib){
 }
 
 void Motors::init(void){
-  pinMode(MOTD_A, PWM);
-  pinMode(MOTD_B, PWM);
-  pinMode(MOTI_A, PWM);
-  pinMode(MOTI_B, PWM);
+  pinMode(MOTD_A, OUTPUT);
+  pinMode(MOTD_B, OUTPUT);
+  pinMode(MOTI_A, OUTPUT);
+  pinMode(MOTI_B, OUTPUT);
 
   //seteo frecuencia pwm
   //motorTimer.setPeriod(100)//us. frecuencia de pwm (10kHz) descomentar el hardwareTimer en .h
@@ -64,12 +64,12 @@ void Motors::run(){
   //Write a pines de motores
   //----------DERECHA----------
   if(motDOut >= 0){
-    pwmWrite(MOTD_A, motDOut);
+    analogWrite(MOTD_A, motDOut);
     digitalWrite(MOTD_B, 0);
   }
   else{
     digitalWrite(MOTD_A, 0);
-    pwmWrite(MOTD_B, -motDOut);
+    analogWrite(MOTD_B, -motDOut);
   }
 
   //----------IZQUIERDA----------
@@ -92,3 +92,12 @@ void Motors::setMotVel(char motor, int vel){
   if(motor == MOT_D) motDSet = vel;
   else if(motor == MOT_I) motISet = vel;
 }
+
+void Motors::turn90(char side){
+
+}
+
+void Motors::turn180(char side){
+
+}
+
